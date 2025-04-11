@@ -1,13 +1,16 @@
 name: Java CI
+
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      METRICS_FILE: metrics.prom
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -24,3 +27,5 @@ jobs:
 
       - name: Run tests
         run: mvn test
+
+     
